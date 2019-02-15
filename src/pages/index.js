@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 import { Button as G2Button } from '../controls';
+import { Button2 as G2Button2 } from '../controls';
 import styles from './index.module.scss';
 
 import Dialog from '@material-ui/core/Dialog';
@@ -89,7 +90,11 @@ class Index extends React.Component {
 
         <div style={{margin: 16}}>
           <G2Button variant="contained" className={styles.button}>G2 button</G2Button>
-          <G2Button variant="contained" className={styles.button}>G2 button</G2Button>
+          <G2Button className={styles.button}>G2 button</G2Button>
+        </div>
+        <div style={{margin: 16}}>
+          <G2Button2 variant="contained" className={styles.button}>G2 button 2</G2Button2>
+          <G2Button2 className={styles.button}>G2 button 2</G2Button2>
         </div>
       </div>
     );
