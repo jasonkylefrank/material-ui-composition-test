@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+
+import { Button as G2Button } from '../controls';
+import styles from './index.module.scss';
+
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -9,12 +13,20 @@ import DialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import withRoot from '../withRoot';
+//import { red } from '@material-ui/core/colors';
 
-const styles = theme => ({
+const jsStyles = theme => ({
   root: {
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 20,
   },
+  //
+  containerTest: {
+    marginTop: 36
+  },
+  buttonTest: {
+    backgroundColor: 'red'
+  }
 });
 
 class Index extends React.Component {
@@ -51,15 +63,34 @@ class Index extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
+
         <Typography variant="h4" gutterBottom>
           Material-UI
         </Typography>
+
         <Typography variant="subtitle1" gutterBottom>
           example project
         </Typography>
-        <Button variant="contained" color="secondary" onClick={this.handleClick}>
+
+
+        {/* <Button variant="contained" color="secondary" onClick={this.handleClick}>
           Super Secret Password
         </Button>
+
+        <div className={classes.containerTest}>
+          
+          <Button variant="contained" color="secondary" onClick={this.handleClick}
+            className={classes.buttonTest}>
+            Super Secret Password
+          </Button>
+        </div> */}
+
+        This is default text.
+
+        <div style={{margin: 16}}>
+          <G2Button variant="contained" className={styles.button}>G2 button</G2Button>
+          <G2Button variant="contained" className={styles.button}>G2 button</G2Button>
+        </div>
       </div>
     );
   }
@@ -69,4 +100,4 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(styles)(Index));
+export default withRoot(withStyles(jsStyles)(Index));
