@@ -1,5 +1,11 @@
-
-
+%button {
+    margin: 12px;
+}
 .button {
-    margin: 20px;
+    @extend %button;
+}
+.buttonColorOverrides {
+    @extend %button;
+    color: yellow;
+    background-color: teal;
 }

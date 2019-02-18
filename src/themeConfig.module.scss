@@ -1,0 +1,8 @@
+$md-light-blue--700: #0288D1;
+$colorPrimary: $md-light-blue--700;
+//$colorPrimary: rgba(255, 40, 40, .2);
+
+
+:export {
+    colorPrimary: $colorPrimary
+}

@@ -13,8 +13,8 @@ function Button(props) {
         { [styles.contained]: (variant === 'contained' || variant === 'fab') },
         props.className
     );
-    console.log('Hello from Button function!');
-    console.log(classNames);
+    //console.log('Hello from Button function!');
+    //console.log(classNames);
 
 
     // Grab all other props so we can pass them through

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Index from './pages/index';
+//import Index from './pages/index';
+import Index2 from './pages/index2';
 import * as serviceWorker from './serviceWorker';
 // -------- Code to handle the stylesheet insertion order issue ---
 //   (see: https://material-ui.com/customization/css-in-js/#css-injection-order)
@@ -18,7 +19,8 @@ const jss = create({
 
 ReactDOM.render(
     <JssProvider jss={jss} generateClassName={generateClassName}>
-        <Index /> 
+        {/* <Index />  */}
+        <Index2 />
     </JssProvider>,
     document.getElementById('root')
 );
