@@ -1,0 +1,40 @@
+$labelSelector: '[class^="MuiButton-label"]';
+
+.root {    
+    background-color: purple;
+
+    &:hover {
+        background-color: #13a0b3;
+
+        & > #{$labelSelector} {
+            color: white;
+        }
+    }
+    // This way works, but we could also do it as below if 
+    //   we add the "label" JS key...(in the JSX file)
+
+    // & > #{$labelSelector} {
+    //     color: peru;
+    //     width: 80%; // checking to see if this will override Mui style rule
+    //     transition: all .3s ease;
+    // }
+}
+.label {
+    color: gray;
+    width: 80%; // checking to see if this will override Mui style rule
+    transition: all .3s ease;
+
+    .contained & {
+        color: red;
+    }
+}
+
+.contained {
+    background-color: yellow;
+
+    // This is another way we could style the label when the
+    //  button has the 'contained' class.
+    // & > #{$labelSelector} {
+    //     color: blue;
+    //}
+}

@@ -13,7 +13,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../withRoot';
+import withRoot2 from '../withRoot2';
 //import { red } from '@material-ui/core/colors';
 
 const jsStyles = theme => ({
@@ -67,7 +67,7 @@ class Index extends React.Component {
         </Dialog>
 
         <Typography variant="h4" gutterBottom>
-          Material-UI
+          This is pages/index2.js
         </Typography>
 
         <Typography variant="subtitle1" gutterBottom>
@@ -89,13 +89,37 @@ class Index extends React.Component {
 
         This is default text.
 
-        <div style={{margin: 16}}>
-          <G2Button variant="contained" className={styles.button}>G2 button</G2Button>
-          <G2Button className={styles.button}>G2 button</G2Button>
+        <div style={{margin: 8}}>
+          <G2Button variant="contained" className={styles.button}>Composition button</G2Button>
+          <G2Button className={styles.button}>Composition button</G2Button>
         </div>
-        <div style={{margin: 16}}>
-          <G2Button2 variant="contained" className={styles.button}>G2 button 2</G2Button2>
-          <G2Button2 className={styles.button}>G2 button 2</G2Button2>
+        <div style={{margin: 8}}>
+          <G2Button2 variant="contained" className={styles.button}>Composition button 2</G2Button2>
+          <G2Button2 className={styles.button}>Composition button 2</G2Button2>
+        </div>
+
+        <div style={{margin: '16px 8px 8px 8px'}}>
+          <Typography>
+            MUI buttons with 'color="primary"' React prop
+          </Typography>
+          <Button
+            color="primary"
+            variant="contained" className={styles.button}>MUI contained Button</Button>
+          <Button 
+            color="primary"
+            className={styles.button}>MUI Button</Button>
+        </div>
+
+        <div style={{margin: '16px 8px 8px 8px'}}>
+          <Typography>
+            MUI buttons with 'color="primary"' React prop, but passing-in Sass overrides
+          </Typography>
+          <Button
+            color="primary"
+            variant="contained" className={styles.buttonColorOverrides}>MUI contained Button</Button>
+          <Button 
+            color="primary"
+            className={styles.buttonColorOverrides}>MUI Button</Button>
         </div>
       </div>
     );
@@ -106,4 +130,4 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(jsStyles)(Index));
+export default withRoot2(withStyles(jsStyles)(Index));
