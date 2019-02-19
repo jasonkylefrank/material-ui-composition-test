@@ -6,9 +6,7 @@ import green from '@material-ui/core/colors/green';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import styles from './themeConfig.module.scss';
 
-// A theme with custom primary and secondary color.
-// It's optional.
-const theme1 = {
+const themeWithDefaultPropsAndOverrides = {
   palette: {
     primary: {
       //light: purple[300],
@@ -22,11 +20,11 @@ const theme1 = {
       //dark: green[700],
     },
   },
-  // props: {
-  //   MuiButton: {
-  //     color: 'primary'
-  //   }
-  // },
+  props: {
+    MuiButton: {
+      color: 'primary'
+    }
+  },
   overrides: {
     MuiButton: {
       // When the button's variant="text" (which is also default).
@@ -59,7 +57,17 @@ const theme1 = {
   },
 };
 
-const theme2 = {
+
+const theme1 = Object.assign({}, themeWithDefaultPropsAndOverrides);
+delete theme1.overrides;
+delete theme1.props;
+
+const theme2 = Object.assign({}, themeWithDefaultPropsAndOverrides);
+delete theme2.props;
+
+const theme3 = Object.assign({}, themeWithDefaultPropsAndOverrides);
+
+const theme4 = {
   palette: {
     primary: {
       main: '#2db54a'
@@ -70,27 +78,20 @@ const theme2 = {
     fontSize: 18
   },
 };
-//const muiTheme1 = createMuiTheme(theme1);
-//const muiTheme2 = createMuiTheme(theme2);
 
 function withRoot2(Component) {
   function WithRoot2(props) {
     const themes = {
       theme1: { name: 'theme1', value: theme1 },
       theme2: { name: 'theme2', value: theme2 },
+      theme3: { name: 'theme3', value: theme3 },
+      theme4: { name: 'theme4', value: theme4 }
     };
     // Get some state
     const [currentTheme, setCurrentTheme] = React.useState(themes.theme1);
 
     const handleSetTheme = (newThemeName) => {
-      switch (newThemeName) {
-        case 'theme1':  // fall through          
-        case 'theme2':
-          setCurrentTheme(themes[newThemeName]);          
-          break;
-        default:
-          console.error(`Error: There is no theme named "${newThemeName}"`);
-      }
+      setCurrentTheme(themes[newThemeName]); 
     };
 
     // MuiThemeProvider makes the theme available down the React tree

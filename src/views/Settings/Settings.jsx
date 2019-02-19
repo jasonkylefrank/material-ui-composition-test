@@ -30,7 +30,8 @@ export default function Settings(props) {
                 >
                     <FormControlLabel value="theme1" control={<Radio />} label="Theme 1" />
                     <FormControlLabel value="theme2" control={<Radio />} label="Theme 2" />
-                    {/* <FormControlLabel value="theme3" control={<Radio />} label="Theme 3" /> */}
+                    <FormControlLabel value="theme3" control={<Radio />} label="Theme 3" />
+                    <FormControlLabel value="theme4" control={<Radio />} label="Theme 4" />
                 </RadioGroup>
             </FormControl>
         </aside>
