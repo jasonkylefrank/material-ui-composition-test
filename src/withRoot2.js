@@ -8,7 +8,7 @@ import styles from './themeConfig.module.scss';
 
 // A theme with custom primary and secondary color.
 // It's optional.
-const theme = createMuiTheme({
+const theme1 = {
   palette: {
     primary: {
       //light: purple[300],
@@ -53,20 +53,54 @@ const theme = createMuiTheme({
     // }
   },
   typography: {
+    // We need this or we get an error
     useNextVariants: true,
     //fontSize: 24
   },
-});
+};
+
+const theme2 = {
+  palette: {
+    primary: {
+      main: '#2db54a'
+    }
+  },
+  typography: {
+    useNextVariants: true,
+    fontSize: 18
+  },
+};
+//const muiTheme1 = createMuiTheme(theme1);
+//const muiTheme2 = createMuiTheme(theme2);
 
 function withRoot2(Component) {
   function WithRoot2(props) {
+    const themes = {
+      theme1: { name: 'theme1', value: theme1 },
+      theme2: { name: 'theme2', value: theme2 },
+    };
+    // Get some state
+    const [currentTheme, setCurrentTheme] = React.useState(themes.theme1);
+
+    const handleSetTheme = (newThemeName) => {
+      switch (newThemeName) {
+        case 'theme1':  // fall through          
+        case 'theme2':
+          setCurrentTheme(themes[newThemeName]);          
+          break;
+        default:
+          console.error(`Error: There is no theme named "${newThemeName}"`);
+      }
+    };
+
     // MuiThemeProvider makes the theme available down the React tree
     // thanks to React context.
     return (
-      <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={createMuiTheme(currentTheme.value)}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...props} />   
+        <Component {...props} 
+          currentThemeName={currentTheme.name} setTheme={handleSetTheme} />   
       </MuiThemeProvider>
     );
   }

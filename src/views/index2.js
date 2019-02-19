@@ -15,7 +15,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
-import withRoot2 from '../withRoot2';
+//import withRoot2 from '../withRoot2';
 //import { red } from '@material-ui/core/colors';
 
 // TODO: Clean these up / eliminate / document them (they came origianlly from 
@@ -28,7 +28,7 @@ const jsStyles = theme => ({
   // },
 });
 
-class Index extends React.Component {
+class Index2 extends React.Component {
   state = {
     open: false,
   };
@@ -46,7 +46,7 @@ class Index extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    //const { classes } = this.props;
     const { open } = this.state;
 
     const rootClasses = classnames(styles.root, this.props.className);
@@ -138,8 +138,8 @@ class Index extends React.Component {
   }
 }
 
-Index.propTypes = {
+Index2.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot2(withStyles(jsStyles)(Index));
+export default withStyles(jsStyles)(Index2);

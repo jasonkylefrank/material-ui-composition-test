@@ -5,7 +5,7 @@ import Settings from './views/Settings';
 import withRoot2 from './withRoot2';
 import styles from './App.module.scss'; 
 
-function App() {
+function App(props) {
     // Get some hooks
     const [state, setState] = React.useState({
         isSettingsOpen: false
@@ -42,7 +42,11 @@ function App() {
         <Drawer anchor="right" 
             open={state.isSettingsOpen}
             onClose={toggleSettings}>
-            <Settings />
+
+            <Settings 
+                currentThemeName={props.currentThemeName} 
+                setTheme={props.setTheme}
+                />
         </Drawer>
     </div>
     );
