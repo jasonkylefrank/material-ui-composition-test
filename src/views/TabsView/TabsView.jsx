@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import { Typography } from '@material-ui/core';
+import styles from './TabsView.module.scss';
 
 // Code originally copied from: https://material-ui.com/demos/tabs/#full-width
 
@@ -17,12 +18,12 @@ import { Typography } from '@material-ui/core';
 //   },
 // }));
 
-const styles = theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: 500,
-  },
-});
+// const styles = theme => ({
+//   root: {
+//     backgroundColor: theme.palette.background.paper,
+//     width: 500,
+//   },
+// });
 
 function TabsView(props) {
 
@@ -39,7 +40,8 @@ function TabsView(props) {
     setValue(index);
   }
   return (
-      <div className={classes.root}>
+      // <div className={classes.root}>
+      <div className={styles.root}>
         <AppBar position="static" color="default">
           <Tabs
             value={value}
@@ -58,9 +60,9 @@ function TabsView(props) {
           index={value}
           onChangeIndex={handleChangeIndex}
         >
-          <Typography>Item One</Typography>
-          <Typography>Item Two</Typography>
-          <Typography>Item Three</Typography>
+          <Typography className={styles.contentPane}>Item One</Typography>
+          <Typography className={styles.contentPane}>Item Two</Typography>
+          <Typography className={styles.contentPane}>Item Three</Typography>
         </SwipeableViews>
       </div>
   );

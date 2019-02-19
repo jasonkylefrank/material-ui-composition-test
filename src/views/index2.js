@@ -130,7 +130,7 @@ class Index2 extends React.Component {
             className={styles.button}>MUI Button</Button>
         </section>
 
-        <section>
+        <section className={styles.tabsSection}>
           <TabsView />
         </section>
       </div>
