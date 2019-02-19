@@ -1,0 +1,34 @@
+$app-bar-height: 48px;
+
+// Passed-in to the main view
+.mainContent {
+    margin-top: $app-bar-height;
+}
+
+.appBarContents {
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+}
+.appBarText {
+    flex-grow: 1;
+}
+// TODO: Find a better place to put this...
+%darkBGIcons {
+    color: white;
+    opacity: .7;
+    transition: all .3s ease;
+    &:hover {
+        opacity: 1.0;
+    }
+}
+
+.menuIconButton {
+    @extend %darkBGIcons;
+    margin-right: 8px;
+}
+
+.settingsIconButton {
+    @extend %darkBGIcons;
+}
+

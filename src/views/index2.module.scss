@@ -1,3 +1,9 @@
+
+.root {
+    padding-top: 16px;
+    text-align: center;
+}
+
 %button {
     margin: 12px;
 }
@@ -8,4 +14,8 @@
     @extend %button;
     color: yellow;
     background-color: teal;
+}
+
+section {
+    margin: 16px 8px 8px 8px;
 }

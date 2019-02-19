@@ -22,6 +22,36 @@ const theme = createMuiTheme({
       //dark: green[700],
     },
   },
+  // props: {
+  //   MuiButton: {
+  //     color: 'primary'
+  //   }
+  // },
+  overrides: {
+    MuiButton: {
+      // When the button's variant="text" (which is also default).
+      // This corresponds to the "MuiButton-text-" CSS class that MUI uses
+      text: {
+        backgroundColor: styles.buttonBackgroundColorMODText,
+        // This is won't take precedence if the button is a 'color="primary"' text button.
+        //   For that case we must use textPrimary instead (see below).
+        '&:hover': {
+          backgroundColor: 'purple'
+        }
+      },
+      // This corresponds to the "MuiButton-textPrimary-" CSS class that MUI uses
+      textPrimary: {
+        '&:hover': {
+          backgroundColor:  styles.buttonBackgroundColorMODTextMODHover
+        }
+      }
+    },
+    // MuiIconButton: {
+    //   root: {
+    //     opacity
+    //   }
+    // }
+  },
   typography: {
     useNextVariants: true,
     //fontSize: 24
@@ -36,7 +66,7 @@ function withRoot2(Component) {
       <MuiThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...props} />
+        <Component {...props} />   
       </MuiThemeProvider>
     );
   }

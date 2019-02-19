@@ -1,7 +1,7 @@
 import React from 'react';
 //import { Button as MuiButton, withStyles } from "@material-ui/core";
 import { Button as MuiButton } from "@material-ui/core";
-import styles from "./button2.module.scss";
+import styles from "./Button2.module.scss";
 //import classnames from 'classnames';
 
 function Button2(props) {

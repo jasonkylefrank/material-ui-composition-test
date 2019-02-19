@@ -4,7 +4,8 @@ import Button from '@material-ui/core/Button';
 
 import { Button as G2Button } from '../controls';
 import { Button2 as G2Button2 } from '../controls';
-import styles from './index.module.scss';
+import TabsView from './TabsView';
+import styles from './index2.module.scss';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -13,22 +14,18 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import classnames from 'classnames';
 import withRoot2 from '../withRoot2';
 //import { red } from '@material-ui/core/colors';
 
+// TODO: Clean these up / eliminate / document them (they came origianlly from 
+//       the MUI/CRA starter)
 const jsStyles = theme => ({
-  root: {
-    textAlign: 'center',
-    //paddingTop: theme.spacing.unit * 20,
-    paddingTop: 20
-  },
-  //
-  containerTest: {
-    marginTop: 36
-  },
-  buttonTest: {
-    backgroundColor: 'red'
-  }
+  // root: {
+  //   textAlign: 'center',
+  //   //paddingTop: theme.spacing.unit * 20,
+  //   paddingTop: 20
+  // },
 });
 
 class Index extends React.Component {
@@ -52,8 +49,11 @@ class Index extends React.Component {
     const { classes } = this.props;
     const { open } = this.state;
 
+    const rootClasses = classnames(styles.root, this.props.className);
+
     return (
-      <div className={classes.root}>
+      // <div className={classes.root}>
+      <div className={rootClasses}>
         <Dialog open={open} onClose={this.handleClose}>
           <DialogTitle>Super Secret Password</DialogTitle>
           <DialogContent>
@@ -98,7 +98,7 @@ class Index extends React.Component {
           <G2Button2 className={styles.button}>Composition button 2</G2Button2>
         </div>
 
-        <div style={{margin: '16px 8px 8px 8px'}}>
+        <section>
           <Typography>
             MUI buttons with 'color="primary"' React prop
           </Typography>
@@ -108,9 +108,9 @@ class Index extends React.Component {
           <Button 
             color="primary"
             className={styles.button}>MUI Button</Button>
-        </div>
+        </section>
 
-        <div style={{margin: '16px 8px 8px 8px'}}>
+        <section>
           <Typography>
             MUI buttons with 'color="primary"' React prop, but passing-in Sass overrides
           </Typography>
@@ -120,7 +120,19 @@ class Index extends React.Component {
           <Button 
             color="primary"
             className={styles.buttonColorOverrides}>MUI Button</Button>
-        </div>
+        </section>
+
+        <section>
+          <Typography>
+            MUI button with no props (except className)
+          </Typography>
+          <Button       
+            className={styles.button}>MUI Button</Button>
+        </section>
+
+        <section>
+          <TabsView />
+        </section>
       </div>
     );
   }
