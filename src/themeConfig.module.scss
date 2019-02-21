@@ -2,7 +2,16 @@ $md-light-blue--700: #0288D1;
 $colorPrimary: $md-light-blue--700;
 //$colorPrimary: rgba(255, 40, 40, .2);
 
+// "text" button type BG color (Material formerly called this a "flat" button)
+$button-background-color--Text: rgba(255, 15, 15, 0.35);
+$button-background-color--Text--Hover: rgba(255, 15, 15, 0.75);
+
+$fontSize: 22;
 
 :export {
-    colorPrimary: $colorPrimary
+    colorPrimary: $colorPrimary;
+    colorSecondary: #ff2222;
+    fontSize: $fontSize;
+    buttonBackgroundColorMODText: $button-background-color--Text;
+    buttonBackgroundColorMODTextMODHover: $button-background-color--Text--Hover;
 }

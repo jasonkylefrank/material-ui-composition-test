@@ -10,7 +10,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-jss": "^8.6.1",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "react-swipeable-views": "^0.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

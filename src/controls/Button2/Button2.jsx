@@ -1,22 +1,20 @@
 import React from 'react';
 //import { Button as MuiButton, withStyles } from "@material-ui/core";
 import { Button as MuiButton } from "@material-ui/core";
-import styles from "./button2.module.scss";
+import styles from "./Button2.module.scss";
 //import classnames from 'classnames';
+import mergeClassesProps from '../../utilities/mergeClassesProps';
 
 function Button2(props) {
 
-    // Grab all other props so we can pass them through
-    const { classes, ...otherProps } = props; 
-    // ---- Trying the Material UI classes object approach
-    const cssOverrides = {
+    const internalClasses = {
         root: styles.root,
-        contained: styles.contained,
-        //label: styles.label,
         label: styles.label,
-        ...classes
+        contained: styles.contained
     };
 
+    const { classes, ...otherProps } = props;
+    const cssOverrides = mergeClassesProps(internalClasses, classes);    
 
     return (
         <MuiButton classes={cssOverrides} {...otherProps}>
