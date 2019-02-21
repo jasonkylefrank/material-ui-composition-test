@@ -1,5 +1,5 @@
 import AppBar from '@material-ui/core/AppBar';
-import Button from './Button';
+import Button from './Button'; // Composition button
 import Button2 from './Button2';
 import Drawer from '@material-ui/core/Drawer';
 import FormControl from '@material-ui/core/FormControl';
