@@ -13,9 +13,6 @@ function Button2(props) {
         } else {
             const merged = {};
             const internalClassesKeys = Object.keys(internalClasses);
-
-            //const { label, root, contained, ...otherPropClasses } = externalClasses;
-            //otherClasses = otherPropClasses;
             const externalCopy = Object.assign({}, externalClasses);
             
             internalClassesKeys.forEach(internalKey => {
@@ -37,41 +34,7 @@ function Button2(props) {
     };
 
     const { classes, ...otherProps } = props;
-    const cssOverrides = mergeClassesObjects(internalClasses, classes);
-    
-    //------------------------------------------------------------
-
-    // This is the "brute force" version of the merging algorithm
-    /*
-    const { classes, ...otherProps } = props; 
-
-    let labelClasses = styles.label;
-    let rootClasses = styles.root;
-    let containedClasses = styles.contained;
-    let otherClasses;
-
-    if (classes) {
-        // Pull out the "other prop classes" so we can add them to the end
-        //  of the classes object without blowing-away the ones that we
-        //  want to merge with internal classes.
-        const { label, root, contained, ...otherPropClasses } = classes;
-        otherClasses = otherPropClasses;
-        labelClasses = classnames(labelClasses, classes.label);
-        rootClasses = classnames(rootClasses, classes.root);
-        containedClasses = classnames(containedClasses, classes.contained);
-    }
-
-    // Note about the above approach (using classnames): An advantage of using
-    //  classnames() is that it avoids having to check if each value is
-    //  defined (it avoids dumping "undefined" into the DOM).
-
-    const cssOverrides = {
-        root: rootClasses,
-        label: labelClasses,
-        contained: containedClasses,        
-        ...otherClasses
-    };
-    */
+    const cssOverrides = mergeClassesObjects(internalClasses, classes);    
 
     return (
         <MuiButton classes={cssOverrides} {...otherProps}>
