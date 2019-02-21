@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
-import { Button as G2Button } from '../controls';
 import { Button2 as G2Button2 } from '../controls';
 import TabsView from './TabsView';
 import styles from './index2.module.scss';
@@ -51,6 +50,13 @@ class Index2 extends React.Component {
 
     const rootClasses = classnames(styles.root, this.props.className);
 
+    const buttonOverrideClasses = {
+      root: styles.buttonColorOverrides,
+      label: styles.buttonLabelColorOverrides,
+      contained: styles.containedButtonOverrides,
+      outlined: styles.outlinedButtonOverrides
+    };
+
     return (
       // <div className={classes.root}>
       <div className={rootClasses}>
@@ -70,11 +76,6 @@ class Index2 extends React.Component {
           This is pages/index2.js
         </Typography>
 
-        <Typography variant="subtitle1" gutterBottom>
-          example project
-        </Typography>
-
-
         {/* <Button variant="contained" color="secondary" onClick={this.handleClick}>
           Super Secret Password
         </Button>
@@ -88,18 +89,37 @@ class Index2 extends React.Component {
         </div> */}
 
         This is default text.
+        
+        <section>
+          <Typography variant="h6" className={styles.sectionHeader}>
+              Composition buttons
+          </Typography>
+          <Typography variant="caption">
+            Classes prop not utilized
+          </Typography>
+          <G2Button2 className={styles.button} variant="contained">Composition button 2</G2Button2>
 
-        <div style={{margin: 8}}>
-          <G2Button variant="contained" className={styles.button}>Composition button</G2Button>
-          <G2Button className={styles.button}>Composition button</G2Button>
-        </div>
-        <div style={{margin: 8}}>
-          <G2Button2 variant="contained" className={styles.button}>Composition button 2</G2Button2>
           <G2Button2 className={styles.button}>Composition button 2</G2Button2>
-        </div>
+
+          <G2Button2 className={styles.button} variant="outlined">Outlined</G2Button2>
+        </section>
 
         <section>
-          <Typography>
+          <Typography variant="caption">
+            Passing in classes via classes prop
+          </Typography>
+          <G2Button2 variant="contained" classes={buttonOverrideClasses}>Composition button 2 - classes</G2Button2>
+
+          <G2Button2 classes={buttonOverrideClasses}>Composition button 2 - classes</G2Button2>
+
+          <G2Button2 variant="outlined" classes={buttonOverrideClasses}>Outlined</G2Button2>
+        </section>
+
+        <section>
+          <Typography variant="h6" className={styles.sectionHeader}>
+              MUI Buttons
+          </Typography>
+          <Typography variant="caption">
             MUI buttons with 'color="primary"' React prop
           </Typography>
           <Button
@@ -111,19 +131,20 @@ class Index2 extends React.Component {
         </section>
 
         <section>
-          <Typography>
-            MUI buttons with 'color="primary"' React prop, but passing-in Sass overrides
+          <Typography variant="caption">
+            MUI buttons with 'color="primary"' React prop, but passing-in Sass overrides via className
           </Typography>
           <Button
             color="primary"
-            variant="contained" className={styles.buttonColorOverrides}>MUI contained Button</Button>
+            variant="contained" 
+            className={styles.buttonColorOverrides}>MUI contained Button</Button>
           <Button 
             color="primary"
             className={styles.buttonColorOverrides}>MUI Button</Button>
         </section>
 
         <section>
-          <Typography>
+          <Typography variant="caption">
             MUI button with no props (except className)
           </Typography>
           <Button       

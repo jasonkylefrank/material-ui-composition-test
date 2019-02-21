@@ -12,8 +12,36 @@
 }
 .buttonColorOverrides {
     @extend %button;
-    color: yellow;
+    // !!! This would break in the prod build!!!!
+    // & > [class^="MuiButton-label"] {
+    //     color: orange;
+    // }    
     background-color: teal;
+}
+
+$buttonLabelOverridesName: buttonLabelColorOverrides;
+
+.#{$buttonLabelOverridesName} {
+    color: #439;
+}
+
+.containedButtonOverrides {
+    background-color: #ff9933;
+    // & .#{$buttonLabelOverridesName} {
+    //     color: #3399ff;
+    // }
+} 
+
+.outlinedButtonOverrides {
+    border-color: rgb(59, 138, 39);
+    border-width: 3px;
+    background-color: transparent;
+    &:hover {
+        border-color: #0f9cc7;
+    }
+    &:hover .#{$buttonLabelOverridesName} {
+        color: #eed600;
+    }
 }
 
 section {
@@ -23,4 +51,9 @@ section {
         display: flex;
         justify-content: center;
     }
+}
+
+.sectionHeader {
+    margin-top: 16px;
+    margin-bottom: 0;
 }

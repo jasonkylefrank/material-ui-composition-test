@@ -10,7 +10,7 @@ import { Typography } from '@material-ui/core';
 import styles from './TabsView.module.scss';
 
 // Code originally copied from: https://material-ui.com/demos/tabs/#full-width
-
+/*
 // const useStyles = makeStyles(theme => ({
 //   root: {
 //     backgroundColor: theme.palette.background.paper,
@@ -24,12 +24,13 @@ import styles from './TabsView.module.scss';
 //     width: 500,
 //   },
 // });
-
+*/
 function TabsView(props) {
 
   //const classes = useStyles();
   //const theme = useTheme();
-  const { classes, theme } = props;
+  //const { classes, theme } = props;
+  const { theme } = props;
   const [value, setValue] = React.useState(0);
 
   function handleChange(event, newValue) {

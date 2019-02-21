@@ -1,22 +1,27 @@
 import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+//import green from '@material-ui/core/colors/green';
 //import blue from '@material-ui/core/colors/blue';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import styles from './themeConfig.module.scss';
+//import { yellow } from '@material-ui/core/colors';
 
 const themeWithDefaultPropsAndOverrides = {
   palette: {
+    //type: 'dark',
     primary: {
-      //light: purple[300],
+      //light: '#FFA000', // Amber 700.  What does this affect???
       main: styles.colorPrimary,
+      // "dark" seems to affect things like hover color on "contained" buttons
       //dark: purple[700],
+      //dark: '#F06292' // Pink 300
     },
     secondary: {
       //light: green[300],
       //main: blue[500],
-      main: green[500],
+      //main: green[500],
+      main: styles.colorSecondary
       //dark: green[700],
     },
   },
@@ -54,6 +59,7 @@ const themeWithDefaultPropsAndOverrides = {
     // We need this or we get an error
     useNextVariants: true,
     //fontSize: 24
+    //fontSize: styles.fontSize
   },
 };
 

@@ -6,9 +6,12 @@ $colorPrimary: $md-light-blue--700;
 $button-background-color--Text: rgba(255, 15, 15, 0.35);
 $button-background-color--Text--Hover: rgba(255, 15, 15, 0.75);
 
+$fontSize: 22;
 
 :export {
     colorPrimary: $colorPrimary;
+    colorSecondary: #ff2222;
+    fontSize: $fontSize;
     buttonBackgroundColorMODText: $button-background-color--Text;
     buttonBackgroundColorMODTextMODHover: $button-background-color--Text--Hover;
 }
