@@ -73,7 +73,7 @@ class Index2 extends React.Component {
         </Dialog>
 
         <Typography variant="h4" gutterBottom>
-          This is pages/index2.js
+          This is views/index2.js
         </Typography>
 
         {/* <Button variant="contained" color="secondary" onClick={this.handleClick}>
@@ -149,6 +149,14 @@ class Index2 extends React.Component {
           </Typography>
           <Button       
             className={styles.button}>MUI Button</Button>
+        </section>
+
+        <section>
+          <Typography variant="caption">
+            Unstyled MUI buttons: 'color="secondary"'', 'variant="outlined"'
+          </Typography>
+          <Button color="secondary" className={styles.button}>MUI Button</Button>
+          <Button variant="outlined" className={styles.button}>MUI Button</Button>
         </section>
 
         <section className={styles.tabsSection}>

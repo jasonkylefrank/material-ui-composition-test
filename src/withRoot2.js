@@ -32,6 +32,10 @@ const themeWithDefaultPropsAndOverrides = {
   },
   overrides: {
     MuiButton: {
+      // root: {
+      //   backgroundColor: 'lavender',
+      //   border: '2px solid red'
+      // },
       // When the button's variant="text" (which is also default).
       // This corresponds to the "MuiButton-text-" CSS class that MUI uses
       text: {
@@ -42,10 +46,43 @@ const themeWithDefaultPropsAndOverrides = {
           backgroundColor: 'purple'
         }
       },
+      label: {
+        color: 'yellow',
+        //width: '50%'
+
+        // This is one way to target a label in a 'contained' button. See below
+        //  under the "contained {}" block for another way.
+        //  Must use the "$". See: https://material-ui.com/customization/overrides/#use-rulename-to-reference-a-local-rule-within-the-same-style-sheet
+        '$contained &': {
+          color: '#1a55c4', // blue
+          fontSize: 11,
+          opacity: 0.4
+        }
+      },
       // This corresponds to the "MuiButton-textPrimary-" CSS class that MUI uses
       textPrimary: {
         '&:hover': {
           backgroundColor:  styles.buttonBackgroundColorMODTextMODHover
+        }
+      },
+      textSecondary: {
+        backgroundColor: '#33cc33'
+      },
+      outlined: {
+        background: 'rgba(10, 200, 10, 0.2)'
+      },
+      contained: {
+        // Must use the "$" in order to target it.  This is a second way to target this
+        //  label (see above for another way).  
+        // '& $label': {
+        //   color: '#1a55c4', // blue
+        //   fontSize: 10
+        // }
+      },
+      containedPrimary: {
+        backgroundColor: 'rgba(200, 10, 70, 0.7)',
+        '&:hover': {
+          backgroundColor: 'rgba(220, 10, 70, 1.0)'
         }
       }
     },
@@ -93,8 +130,9 @@ function withRoot2(Component) {
       theme3: { name: 'theme3', value: theme3 },
       theme4: { name: 'theme4', value: theme4 }
     };
+    const startingTheme = themes.theme1;
     // Get some state
-    const [currentTheme, setCurrentTheme] = React.useState(themes.theme1);
+    const [currentTheme, setCurrentTheme] = React.useState(startingTheme);
 
     const handleSetTheme = (newThemeName) => {
       setCurrentTheme(themes[newThemeName]); 
