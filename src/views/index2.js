@@ -151,6 +151,14 @@ class Index2 extends React.Component {
             className={styles.button}>MUI Button</Button>
         </section>
 
+        <section>
+          <Typography variant="caption">
+            Unstyled MUI buttons: 'color="secondary"'', 'variant="outlined"'
+          </Typography>
+          <Button color="secondary" className={styles.button}>MUI Button</Button>
+          <Button variant="outlined" className={styles.button}>MUI Button</Button>
+        </section>
+
         <section className={styles.tabsSection}>
           <TabsView />
         </section>
