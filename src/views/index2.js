@@ -73,7 +73,7 @@ class Index2 extends React.Component {
         </Dialog>
 
         <Typography variant="h4" gutterBottom>
-          This is pages/index2.js
+          This is views/index2.js
         </Typography>
 
         {/* <Button variant="contained" color="secondary" onClick={this.handleClick}>
